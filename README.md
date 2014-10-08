@@ -1,13 +1,13 @@
 # grunt-init-node-sample
 
-The best project ever.
+Misc helper methods for use within gruntfile.js
 
 ## Getting Started
-Install the module with: `npm install grunt-init-node-sample`
+Install the module with: `npm install git+https://github.com/aheller/grunt-helper.git --save-dev`
 
 ```javascript
-var grunt_init_node_sample = require('grunt-init-node-sample');
-grunt_init_node_sample.awesome(); // "awesome"
+var grunt_helper = require('grunt-helper');
+grunt_helper.awesome(); // "awesome"
 ```
 
 ## Documentation
@@ -17,11 +17,10 @@ _(Coming soon)_
 _(Coming soon)_
 
 ## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt](http://gruntjs.com/).
+_(Coming soon)_
 
 ## Release History
 _(Nothing yet)_
 
 ## License
-Copyright (c) 2012 "Cowboy" Ben Alman  
-Licensed under the MIT license.
+_(Nothing yet)_
