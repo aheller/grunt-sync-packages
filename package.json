@@ -13,16 +13,16 @@
     "url": "https://github.com/aheller/sync-packages/issues"
   },
   "licenses": [],
-  "main": "lib/helper",
+  "main": "lib/sync-packages",
   "engines": {
     "node": ">= 0.10.0"
   },
   "scripts": {},
   "dependencies": {
-      "grunt-bowercopy": "git+https://github.com/aheller/grunt-bowercopy.git",
-      "grunt-wiresrc": "git+https://github.com/aheller/grunt-wiresrc.git",
-      "glob": "^4.0.6",
-      "grunt-hub": "^0.7.0"
+    "grunt-bowercopy": "git+https://github.com/aheller/grunt-bowercopy.git",
+    "glob": "^4.0.6",
+    "grunt-hub": "^0.7.0",
+    "path": "^0.4.9"
   },
   "keywords": [],
   "readmeFilename": "README.md",
