@@ -1,13 +1,13 @@
 # sync-packages
 
-Misc helper methods for use within gruntfile.js
+Helper methods for syncing files between locally maintained web packages and working project
 
 ## Getting Started
 Install the module with: `npm install git+https://github.com/aheller/sync-packages.git --save-dev`
 
 ```javascript
-var grunt_helper = require('sync-packages');
-grunt_helper.awesome(); // "awesome"
+var sync_packages = require('sync-packages');
+sync_packages.awesome(); // "awesome"
 ```
 
 ## Documentation
