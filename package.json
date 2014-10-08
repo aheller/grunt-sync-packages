@@ -20,7 +20,9 @@
   "scripts": {},
   "dependencies": {
       "grunt-bowercopy": "git+https://github.com/aheller/grunt-bowercopy.git",
-      "grunt-wiresrc": "git+https://github.com/aheller/grunt-wiresrc.git"
+      "grunt-wiresrc": "git+https://github.com/aheller/grunt-wiresrc.git",
+      "glob": "^4.0.6",
+      "grunt-hub": "^0.7.0"
   },
   "keywords": [],
   "readmeFilename": "README.md",
