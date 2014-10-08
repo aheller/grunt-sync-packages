@@ -1,12 +1,12 @@
-# grunt-helper
+# sync-packages
 
 Misc helper methods for use within gruntfile.js
 
 ## Getting Started
-Install the module with: `npm install git+https://github.com/aheller/grunt-helper.git --save-dev`
+Install the module with: `npm install git+https://github.com/aheller/sync-packages.git --save-dev`
 
 ```javascript
-var grunt_helper = require('grunt-helper');
+var grunt_helper = require('sync-packages');
 grunt_helper.awesome(); // "awesome"
 ```
 
