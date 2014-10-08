@@ -18,7 +18,7 @@
     "node": ">= 0.10.0"
   },
   "scripts": {},
-  "devDependencies": {
+  "dependencies": {
       "grunt-bowercopy": "git+https://github.com/aheller/grunt-bowercopy.git",
       "grunt-wiresrc": "git+https://github.com/aheller/grunt-wiresrc.git"
   },
