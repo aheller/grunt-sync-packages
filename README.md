@@ -6,8 +6,20 @@ Helper methods for syncing files between locally maintained web packages and wor
 Install the module with: `npm install git+https://github.com/aheller/sync-packages.git --save-dev`
 
 ```javascript
-var sync_packages = require('sync-packages');
-sync_packages.awesome(); // "awesome"
+ var syncPackages = require('sync-packages')(grunt, {
+      env: 'env.json',
+      watch: {
+          js: {
+              files: ['<%= yeoman.app %>/scripts/{,*/}*.js']
+          },
+          jade: {
+              files: ['<%= yeoman.app %>/{,views/**/}*.jade']
+          },
+          sass: {
+              files: ['<%= yeoman.app %>/styles/{,*/}*.scss']
+          }
+      }
+  });
 ```
 
 ## Documentation
