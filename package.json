@@ -18,7 +18,10 @@
     "node": ">= 0.10.0"
   },
   "scripts": {},
-  "devDependencies": {},
+  "devDependencies": {
+      "grunt-bowercopy": "git+https://github.com/aheller/grunt-bowercopy.git",
+      "grunt-wiresrc": "git+https://github.com/aheller/grunt-wiresrc.git"
+  },
   "keywords": [],
   "readmeFilename": "README.md",
   "_id": "grunt-helper@1.0.0",
