@@ -1,4 +1,4 @@
-# grunt-init-node-sample
+# grunt-helper
 
 Misc helper methods for use within gruntfile.js
 
