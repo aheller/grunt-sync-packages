@@ -1,0 +1,28 @@
+{
+  "name": "grunt-helper",
+  "version": "1.0.0",
+  "homepage": "https://github.com/aheller/grunt-helper",
+  "author": {
+    "name": "Alex Heller"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/aheller/grunt-helper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aheller/grunt-helper/issues"
+  },
+  "licenses": [],
+  "main": "lib/helper",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "scripts": {},
+  "devDependencies": {},
+  "keywords": [],
+  "readme": "# grunt-init-node-sample\r\n\r\n## Getting Started\r\nInstall the module with: `npm install grunt-init-node-sample`\r\n\r\n```javascript\r\nvar grunt_init_node_sample = require('grunt-init-node-sample');\r\ngrunt_init_node_sample.awesome(); // "awesome"\r\n```\r\n\r\n## Documentation\r\n_(Coming soon)_\r\n\r\n## Examples\r\n_(Coming soon)_\r\n\r\n## Contributing\r\nIn lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt](http://gruntjs.com/).\r\n\r\n## Release History\r\n_(Nothing yet)_\r\n\r\n",
+  "readmeFilename": "README.md",
+  "_id": "grunt-helper@1.0.0",
+  "_resolved": "git+https://github.com/aheller/grunt-helper.git",
+  "_from": "git+https://github.com/aheller/grunt-helper.git"
+}
