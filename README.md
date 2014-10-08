@@ -3,7 +3,7 @@
 Helper methods for syncing files between locally maintained web packages and working project
 
 ## Getting Started
-Install the module with: `npm install git+https://github.com/aheller/sync-packages.git --save-dev`
+Install module with: `npm install git+https://github.com/aheller/sync-packages.git --save-dev`
 
 ```javascript
  var syncPackages = require('sync-packages')(grunt, {
