@@ -5,6 +5,8 @@ Grunt task for syncing files locally maintained + installed internal web package
 ## Getting Started
 `npm install git+https://github.com/aheller/grunt-sync-packages.git --save-dev`
 
+
+In your Grunfile.js, add this task and register accordingly:
 ```javascript
  syncPackages: {
      options: {
