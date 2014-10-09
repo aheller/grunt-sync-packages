@@ -1,19 +1,19 @@
 {
-  "name": "sync-packages",
+  "name": "grunt-sync-packages",
   "version": "1.0.0",
-  "homepage": "https://github.com/aheller/sync-packages",
+  "homepage": "https://github.com/aheller/grunt-sync-packages",
   "author": {
     "name": "Alex Heller"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/aheller/sync-packages.git"
+    "url": "git://github.com/aheller/grunt-sync-packages.git"
   },
   "bugs": {
-    "url": "https://github.com/aheller/sync-packages/issues"
+    "url": "https://github.com/aheller/grunt-sync-packages/issues"
   },
   "licenses": [],
-  "main": "lib/sync-packages",
+  "main": "tasks/sync-packages.js",
   "engines": {
     "node": ">= 0.10.0"
   },
@@ -26,7 +26,7 @@
   },
   "keywords": [],
   "readmeFilename": "README.md",
-  "_id": "sync-packages@1.0.0",
-  "_resolved": "git+https://github.com/aheller/sync-packages.git",
-  "_from": "git+https://github.com/aheller/sync-packages.git"
+  "_id": "grunt-sync-packages@1.0.0",
+  "_resolved": "git+https://github.com/aheller/grunt-sync-packages.git",
+  "_from": "git+https://github.com/aheller/grunt-sync-packages.git"
 }

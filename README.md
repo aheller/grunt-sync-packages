@@ -1,25 +1,19 @@
-# sync-packages
+# grunt-sync-packages
 
-Helper methods for syncing files between locally maintained web packages and working project
+Grunt task for syncing files locally maintained + installed internal web packages with working project
 
 ## Getting Started
-Install module with: `npm install git+https://github.com/aheller/sync-packages.git --save-dev`
+Install module with: `npm install git+https://github.com/aheller/grunt-sync-packages.git --save-dev`
 
 ```javascript
- var syncPackages = require('sync-packages')(grunt, {
-      env: 'env.json',
-      watch: {
-          js: {
-              files: ['<%= yeoman.app %>/scripts/{,*/}*.js']
-          },
-          jade: {
-              files: ['<%= yeoman.app %>/{,views/**/}*.jade']
-          },
-          sass: {
-              files: ['<%= yeoman.app %>/styles/{,*/}*.scss']
-          }
-      }
-  });
+ syncPackages: {
+     options: {
+         env: 'env.json',
+         watch: true
+     },
+     dist: {
+     }
+},
 ```
 
 ## Documentation
