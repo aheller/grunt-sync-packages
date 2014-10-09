@@ -14,7 +14,7 @@ module.exports = function (grunt) {
 
         // dev environment config
         var env = {};
-        var envFile = opts.env || 'env.json';
+        var envFile = opts.env && opts.env !== '' ? opts.env : 'env.json';
         if(grunt.file.exists(envFile)) {
             env = grunt.file.readJSON(envFile);
             if (!env) env = {};
