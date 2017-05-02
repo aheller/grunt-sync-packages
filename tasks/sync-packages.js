@@ -164,8 +164,6 @@ module.exports = function (grunt) {
                 }
                 else if (target === 'ts') {
                     var srcDest = {};
-                    //var jsfilepath = filepath.replace('.ts', '.js');
-                    // srcDest[jsfilepath] = filepath;
                     grunt.config.set('ts.default.src', filepath);
                     grunt.task.run('ts:default');
                     copySourceWebPackage(filepath, 'ts');
@@ -183,21 +181,27 @@ module.exports = function (grunt) {
                     if(path.extname(file) === '.js' && !/\-(templates|config)\.js$/.test(watchPath))
                         syncWatchFiles.js.files.push(watchPath);
                 });
-                pkg.copy.forEach(function (file) {
-                    var watchPath = normalizedPath + file;
-                    if (path.extname(file) === '.jade')
-                        syncWatchFiles.jade.files.push(watchPath);
-                });
-                pkg.sass.forEach(function (file) {
-                    var watchPath = normalizedPath + file;
-                    if (path.extname(file) === '.scss')
-                        syncWatchFiles.sass.files.push(watchPath);
-                });
-                pkg.ts.forEach(function (file) {
-                    var watchPath = normalizedPath + file;
-                    if (path.extname(file) === '.ts')
-                        syncWatchFiles.ts.files.push(watchPath);
-                });
+                if(pkg.copy) {
+                    pkg.copy.forEach(function (file) {
+                        var watchPath = normalizedPath + file;
+                        if (path.extname(file) === '.jade')
+                            syncWatchFiles.jade.files.push(watchPath);
+                    });
+                }
+                if(pkg.sass) {
+                    pkg.sass.forEach(function (file) {
+                        var watchPath = normalizedPath + file;
+                        if (path.extname(file) === '.scss')
+                            syncWatchFiles.sass.files.push(watchPath);
+                    });
+                }
+                if(pkg.ts) {
+                    pkg.ts.forEach(function (file) {
+                        var watchPath = normalizedPath + file;
+                        if (path.extname(file) === '.ts')
+                            syncWatchFiles.ts.files.push(watchPath);
+                    });
+                }
             });
         }
 
