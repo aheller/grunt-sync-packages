@@ -29,8 +29,6 @@ module.exports = function (grunt) {
             return env.sourceWebPackages && env.sourceWebPackages.length > 0;
         };
 
-
-
         getSourceWebPackages().every(function (pkg) {
             var meta = grunt.file.readJSON(path.join(pkg.path, 'bower.json'));
             for (var prop in meta)
@@ -73,22 +71,32 @@ module.exports = function (grunt) {
         };
 
 
-        var copySourceWebPackage = function (filepath, pkglist) {
-            var pkg = getSourceWebPackage(filepath);
+        var copySourceWebPackage = function (src, pkglist) {
+            var pkg = getSourceWebPackage(src);
             if(pkg) {
                 var pkgList = pkg[pkglist];
                 if (pkgList) {
-                    var dest = filepath.replace(pkg.path, '');
+                    var dest = src.replace(pkg.path, '');
                     if (pkgList.indexOf(dest.replace(/\\/g, '/')) !== -1) {
-                        if(pkglist == 'main')
+                        if(pkglist == 'main' || pkglist == 'ts')
                             dest  = 'bower_components\\' + pkg.name + '\\' + dest;
 
-                        var srcDest = {};
-                        srcDest[dest] = filepath;
+                        var files = [];
+                        var file = {};
+                        file[dest] = src;
+                        files.push(file)
+                        if(pkglist == 'ts') {
+                            ['.js', '.js.map'].forEach(function (ext) {
+                                file = {};
+                                file[dest.replace('.ts', ext)] = src.replace('.ts', ext);
+                                files.push(file);
+                            });
+                        }
+
                         grunt.config.set('bowercopy.watch.options.srcPrefix', pkg.path);
-                        grunt.config.set('bowercopy.watch.files', srcDest);
+                        grunt.config.set('bowercopy.watch.files', files);
                         grunt.task.run('bowercopy:watch');
-                        return { pkg: pkg, src: filepath, dest: dest };
+                        return { pkg: pkg, src: src, dest: dest };
                     }
                 }
             }
@@ -109,6 +117,9 @@ module.exports = function (grunt) {
                     files: []
                 },
                 sass: {
+                    files: []
+                },
+                ts: {
                     files: []
                 }
             };
@@ -151,6 +162,14 @@ module.exports = function (grunt) {
                     grunt.task.run('sass:dist');
                     copySourceWebPackage(cssfilepath, 'main');
                 }
+                else if (target === 'ts') {
+                    var srcDest = {};
+                    //var jsfilepath = filepath.replace('.ts', '.js');
+                    // srcDest[jsfilepath] = filepath;
+                    grunt.config.set('ts.default.src', filepath);
+                    grunt.task.run('ts:default');
+                    copySourceWebPackage(filepath, 'ts');
+                }
 
                 else if (target === 'js')
                     copySourceWebPackage(filepath, 'main');
@@ -173,6 +192,11 @@ module.exports = function (grunt) {
                     var watchPath = normalizedPath + file;
                     if (path.extname(file) === '.scss')
                         syncWatchFiles.sass.files.push(watchPath);
+                });
+                pkg.ts.forEach(function (file) {
+                    var watchPath = normalizedPath + file;
+                    if (path.extname(file) === '.ts')
+                        syncWatchFiles.ts.files.push(watchPath);
                 });
             });
         }
