@@ -180,7 +180,8 @@ module.exports = function (grunt) {
                     copySourceWebPackage(jsfilepath, 'main');
                 }
                 else if (target === 'js') {
-                    if (Object.keys(grunt.config.get('babel.jsx.files')).indexOf(filepath) === -1)
+                    var jsxFiles = grunt.config.get('babel.jsx.files');
+                    if (!jsxFiles || Object.keys(jsxFiles).indexOf(filepath) === -1)
                         copySourceWebPackage(filepath, 'main');
                 }
             });
