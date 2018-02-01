@@ -20,6 +20,7 @@ module.exports = function (grunt) {
             if (!env) env = {};
         }
 
+
         // init local web packages source defined within env.json
         var getSourceWebPackages = function () {
             return env.sourceWebPackages || [];
@@ -56,7 +57,6 @@ module.exports = function (grunt) {
                     pkg.gruntconfig = grunt.file.readJSON(gruntConfigFile);
             }
         });
-
 
         var getSourceWebPackage = function (filepath) {
             var inPkg;
@@ -121,6 +121,9 @@ module.exports = function (grunt) {
                 },
                 ts: {
                     files: []
+                },
+                jsx: {
+                    files: []
                 }
             };
 
@@ -168,11 +171,19 @@ module.exports = function (grunt) {
                     grunt.task.run('ts:default');
                     copySourceWebPackage(filepath, 'ts');
                 }
-
-                else if (target === 'js')
-                    copySourceWebPackage(filepath, 'main');
+                else if (target === 'jsx') {
+                    var srcDest = {};
+                    var jsfilepath = filepath.replace('.jsx', '.js');
+                    srcDest[jsfilepath] = filepath;
+                    grunt.config.set('babel.jsx.files', srcDest);
+                    grunt.task.run('babel:jsx');
+                    copySourceWebPackage(jsfilepath, 'main');
+                }
+                else if (target === 'js') {
+                    if (Object.keys(grunt.config.get('babel.jsx.files')).indexOf(filepath) === -1)
+                        copySourceWebPackage(filepath, 'main');
+                }
             });
-
 
             getSourceWebPackages().forEach(function (pkg) {
                 var normalizedPath = pkg.path.replace(/\\/g, '/');
@@ -200,6 +211,13 @@ module.exports = function (grunt) {
                         var watchPath = normalizedPath + file;
                         if (path.extname(file) === '.ts')
                             syncWatchFiles.ts.files.push(watchPath);
+                    });
+                }
+                if(pkg.jsx) {
+                    pkg.jsx.forEach(function (file) {
+                        var watchPath = normalizedPath + file;
+                        if (path.extname(file) === '.jsx')
+                            syncWatchFiles.jsx.files.push(watchPath);
                     });
                 }
             });
